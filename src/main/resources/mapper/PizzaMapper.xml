@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.PizzaDao">
+
+    <resultMap type="pizza" id="result">
+        <id property="id" column="id"/>
+        <result property="type" column="type"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="price_regular" column="price_regular"/>
+        <result property="price_medium" column="price_medium"/>
+        <result property="price_large" column="price_large"/>
+    </resultMap>
+
+    <select id="findAll" resultType="pizza" resultMap="result">
+        SELECT * FROM pizza
+    </select>
+
+    <insert id="insert" parameterType="pizza">
+        INSERT INTO pizza(id, name, type, description, price_regular,price_medium,price_large)
+        VALUES(#{id} ,#{name}, #{type}, #{description}, #{price_regular}, #{price_medium}, #{price_large})
+    </insert>
+
+    <update id="update" parameterType="pizza">
+        UPDATE pizza SET
+        name = #{name},
+        type = #{type},
+        description = #{description},
+        price_regular = #{price_regular},
+        price_medium = #{price_medium},
+        price_large = #{price_large}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM pizza WHERE id = #{id}
+    </delete>
+
+    <select id="findById" parameterType="int"
+            resultType="pizza" resultMap="result">
+        SELECT * FROM pizza WHERE id = #{id}
+    </select>
+
+</mapper>
