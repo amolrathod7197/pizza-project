@@ -1,79 +1,53 @@
 package com.example.demo.controller;
 
-import com.example.demo.dao.PizzaDao;
-import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.model.Pizza;
+import com.example.demo.response.PizzaResponse;
+import com.example.demo.services.PizzaService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
 public class PizzaController {
-    @Autowired
-    private PizzaDao pizzaDao;
+    private static final Logger log = LoggerFactory.getLogger(PizzaController.class);
 
-    @GetMapping("/pizza")
-    public List<Pizza> getAllPizza()
-    {
-        return pizzaDao.findAll();
+    @Autowired
+    PizzaService pizzaService;
+
+    @GetMapping("/pizzas")
+    public PizzaResponse getAllPizza() {
+        log.info("Received request to get list of Pizza's");
+        return pizzaService.getAllPizzas();
     }
 
     @PostMapping("/pizza")
-    public Map<String, Boolean> createPizza(@RequestBody Pizza pizza)  {
-
-        Map<String, Boolean> response = new HashMap<>();
-
-        Boolean bool = pizzaDao.insert(pizza) > 0 ?
-                response.put("created", Boolean.TRUE) :
-                response.put("created", Boolean.FALSE);
-
-        return response;
-
+    public PizzaResponse createPizza(@Validated @RequestBody Pizza pizza){
+        log.info("Received request to create pizza");
+        return pizzaService.createPizza(pizza);
     }
 
     @GetMapping("/pizza/{id}")
-    public Pizza findPizzaById(@PathVariable Integer id) {
-
-        Pizza pizza = pizzaDao.findById(id).
-                orElseThrow(() -> new ResourceNotFoundException("Pizza not exist with id :" + id));
-        return pizza;
+    public PizzaResponse findPizzaById(@PathVariable Integer id) {
+        log.info("Received request to get pizza info");
+        return pizzaService.getPizzaById(id);
     }
 
     @PutMapping("/pizza/{id}")
-    public Map<String, Boolean> updatePizza(@PathVariable Integer id,
-                                           @RequestBody Pizza pizzaDetails) {
-
-        Pizza pizza = pizzaDao.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException
-                        ("Pizza not exist with id :" + id));
-        pizzaDetails.setId(id);
-        Map<String, Boolean> response = new HashMap<>();
-
-        Boolean bool = pizzaDao.update(pizzaDetails) > 0 ?
-                response.put("updated", Boolean.TRUE) :
-                response.put("updated", Boolean.FALSE);
-
-        return response;
+    public PizzaResponse updatePizza(@PathVariable Integer id,
+                                            @RequestBody Pizza pizzaDetails) {
+        log.info("Received request to update pizza info");
+        return pizzaService.updatePizza(id,pizzaDetails);
     }
 
     @DeleteMapping("/pizza/{id}")
-    public Map<String, Boolean> deleteUser
-            (@PathVariable Integer id) {
-
-        Pizza pizza = pizzaDao.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException
-                        ("Pizza not exist with id :" + id));
-
-        Map<String, Boolean> response = new HashMap<>();
-
-        Boolean bool = pizzaDao.deleteById(pizza.getId()) > 0 ?
-                response.put("deleted", Boolean.TRUE) :
-                response.put("deleted", Boolean.FALSE);
-        return response;
+    public ResponseEntity deleteUser(@PathVariable Integer id) {
+        log.info("Received request to delete pizza info");
+        return pizzaService.deletePizza(id);
     }
 
 }

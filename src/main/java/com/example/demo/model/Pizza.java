@@ -1,14 +1,32 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+
 public class Pizza {
 
+    @JsonProperty("Id")
     private int id;
+    @NotBlank(message = "Type is mandatory field")
+    @JsonProperty("Type")
     private String type;
+    @JsonProperty("Name")
+    @NotBlank(message = "Name is mandatory field")
     private String name;
+    @NotBlank(message = "Description is mandatory field")
+    @JsonProperty("Description")
     private String description;
-    private float price_regular;
-    private float price_medium;
-    private float price_large;
+    @JsonProperty("PriceRegular")
+    @NotNull(message = "PriceRegular is mandatory field")
+    private Integer priceRegular;
+    @NotNull(message = "PriceMedium is mandatory field")
+    @JsonProperty("PriceMedium")
+    private Integer priceMedium;
+    @JsonProperty("PriceLarge")
+     @NotNull(message = "PriceLarge is mandatory field")
+    private Integer priceLarge;
 
     public int getId() {
         return id;
@@ -42,28 +60,28 @@ public class Pizza {
         this.description = description;
     }
 
-    public float getPrice_regular() {
-        return price_regular;
+    public Integer getPriceRegular() {
+        return priceRegular;
     }
 
-    public void setPrice_regular(float price_regular) {
-        this.price_regular = price_regular;
+    public void setPriceRegular(Integer priceRegular) {
+        this.priceRegular = priceRegular;
     }
 
-    public float getPrice_medium() {
-        return price_medium;
+    public Integer getPriceMedium() {
+        return priceMedium;
     }
 
-    public void setPrice_medium(float price_medium) {
-        this.price_medium = price_medium;
+    public void setPriceMedium(Integer priceMedium) {
+        this.priceMedium = priceMedium;
     }
 
-    public float getPrice_large() {
-        return price_large;
+    public Integer getPriceLarge() {
+        return priceLarge;
     }
 
-    public void setPrice_large(float price_large) {
-        this.price_large = price_large;
+    public void setPriceLarge(Integer priceLarge) {
+        this.priceLarge = priceLarge;
     }
 
 

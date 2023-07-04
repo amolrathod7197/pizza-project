@@ -3,22 +3,22 @@
 <mapper namespace="com.example.demo.dao.PizzaDao">
 
     <resultMap type="pizza" id="result">
-        <id property="id" column="id"/>
+        <id property="id" column="pizza_id"/>
         <result property="type" column="type"/>
         <result property="name" column="name"/>
         <result property="description" column="description"/>
-        <result property="price_regular" column="price_regular"/>
-        <result property="price_medium" column="price_medium"/>
-        <result property="price_large" column="price_large"/>
+        <result property="priceRegular" column="price_regular"/>
+        <result property="priceMedium" column="price_medium"/>
+        <result property="priceLarge" column="price_large"/>
     </resultMap>
 
     <select id="findAll" resultType="pizza" resultMap="result">
         SELECT * FROM pizza
     </select>
 
-    <insert id="insert" parameterType="pizza">
-        INSERT INTO pizza(id, name, type, description, price_regular,price_medium,price_large)
-        VALUES(#{id} ,#{name}, #{type}, #{description}, #{price_regular}, #{price_medium}, #{price_large})
+    <insert id="insert" parameterType="pizza" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO pizza(name, type, description, price_regular,price_medium,price_large)
+        VALUES(#{name}, #{type}, #{description}, #{priceRegular}, #{priceMedium}, #{priceLarge})
     </insert>
 
     <update id="update" parameterType="pizza">
@@ -26,19 +26,24 @@
         name = #{name},
         type = #{type},
         description = #{description},
-        price_regular = #{price_regular},
-        price_medium = #{price_medium},
-        price_large = #{price_large}
-        WHERE id = #{id}
+        price_regular = #{priceRegular},
+        price_medium = #{priceMedium},
+        price_large = #{priceLarge}
+        WHERE pizza_id = #{id}
     </update>
 
     <delete id="deleteById" parameterType="int">
-        DELETE FROM pizza WHERE id = #{id}
+        DELETE FROM pizza WHERE pizza_id = #{id}
     </delete>
 
     <select id="findById" parameterType="int"
             resultType="pizza" resultMap="result">
-        SELECT * FROM pizza WHERE id = #{id}
+        SELECT * FROM pizza WHERE pizza_id = #{id}
+    </select>
+
+    <select id="findByName" parameterType="string"
+            resultType="pizza" resultMap="result">
+        SELECT * FROM pizza WHERE name = #{name}
     </select>
 
 </mapper>
