@@ -38,8 +38,7 @@ public class PizzaController {
     }
 
     @PutMapping("/pizza/{id}")
-    public PizzaResponse updatePizza(@PathVariable Integer id,
-                                            @RequestBody Pizza pizzaDetails) {
+    public PizzaResponse updatePizza(@PathVariable Integer id,@Validated @RequestBody Pizza pizzaDetails) {
         log.info("Received request to update pizza info");
         return pizzaService.updatePizza(id,pizzaDetails);
     }

@@ -1,0 +1,697 @@
+2023-07-04 11:53:14,881 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 11:53:14,891 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 16628 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 11:53:14,896 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2023-07-04 11:53:14,897 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 11:53:20,052 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 11:53:20,089 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 11:53:20,090 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 11:53:21,345 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 11:53:23,193 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 11:53:23,263 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 9.971 seconds (JVM running for 12.355)
+2023-07-04 11:55:20,917 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 11:55:21,171 INFO com.example.demo.controller.PizzaController [http-nio-8080-exec-2] Received request to create pizza
+2023-07-04 11:55:21,209 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Starting...
+2023-07-04 11:55:22,534 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Start completed.
+2023-07-04 11:55:22,544 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT * FROM pizza WHERE name = ?
+2023-07-04 11:55:22,582 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: Paneer-tikka(String)
+2023-07-04 11:55:22,621 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 0
+2023-07-04 11:55:22,633 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: INSERT INTO pizza(name, type, description, price_regular,price_medium,price_large) VALUES(?, ?, ?, ?, ?, ?)
+2023-07-04 11:55:22,635 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: Paneer-tikka(String), Veg(String), Veg most selling item(String), 200(Integer), 250(Integer), 300(Integer)
+2023-07-04 11:55:22,646 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 1
+2023-07-04 11:55:22,650 INFO com.example.demo.services.PizzaService [http-nio-8080-exec-2] Returning response after processing request.
+2023-07-04 11:55:43,715 INFO com.example.demo.controller.CustomerController [http-nio-8080-exec-3] Received request to get pizza info
+2023-07-04 11:55:43,717 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==>  Preparing: SELECT * FROM customers
+2023-07-04 11:55:43,718 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==> Parameters: 
+2023-07-04 11:55:43,726 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==    Columns: customer_id, customer_name, address, phone_number
+2023-07-04 11:55:43,727 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==        Row: 1, Amol Rathod, Pune, 8208881796
+2023-07-04 11:55:43,729 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==        Row: 3, Amol Rathod, Pune-manjri, 8208881796
+2023-07-04 11:55:43,730 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==        Row: 4, Amol Rathod, Pune-manjari bk, 8208881796
+2023-07-04 11:55:43,731 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==      Total: 3
+2023-07-04 11:55:43,732 INFO com.example.demo.services.CustomerService [http-nio-8080-exec-3] Returning response after request execution...
+2023-07-04 11:56:19,700 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-4] Received request to create orders
+2023-07-04 11:56:19,701 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] ==>  Preparing: SELECT * FROM customers WHERE customer_id = ?
+2023-07-04 11:56:19,702 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] ==> Parameters: 1(Integer)
+2023-07-04 11:56:19,704 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==    Columns: customer_id, customer_name, address, phone_number
+2023-07-04 11:56:19,705 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==        Row: 1, Amol Rathod, Pune, 8208881796
+2023-07-04 11:56:19,705 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==      Total: 1
+2023-07-04 11:56:19,707 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] ==>  Preparing: SELECT * FROM pizza WHERE pizza_id = ?
+2023-07-04 11:56:19,708 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] ==> Parameters: 2(Integer)
+2023-07-04 11:56:19,709 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==    Columns: pizza_id, type, name, description, price_regular, price_medium, price_large
+2023-07-04 11:56:19,710 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==        Row: 2, Non-Veg, Chicken-sause, Non-Veg most selling item, 200, 250, 300
+2023-07-04 11:56:19,710 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==      Total: 1
+2023-07-04 11:56:19,738 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 11:56:19,739 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] ==> Parameters: 2(Integer)
+2023-07-04 11:56:19,741 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==    Columns: price_medium
+2023-07-04 11:56:19,741 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==        Row: 250
+2023-07-04 11:56:19,744 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==      Total: 1
+2023-07-04 11:56:19,747 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] ==>  Preparing: SELECT * FROM pizza WHERE pizza_id = ?
+2023-07-04 11:56:19,748 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] ==> Parameters: 14(Integer)
+2023-07-04 11:56:19,749 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-4] <==      Total: 0
+2023-07-04 11:57:07,793 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-5] Received request to create orders
+2023-07-04 11:57:07,794 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==>  Preparing: SELECT * FROM customers WHERE customer_id = ?
+2023-07-04 11:57:07,795 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==> Parameters: 1(Integer)
+2023-07-04 11:57:07,797 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==    Columns: customer_id, customer_name, address, phone_number
+2023-07-04 11:57:07,798 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==        Row: 1, Amol Rathod, Pune, 8208881796
+2023-07-04 11:57:07,798 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==      Total: 1
+2023-07-04 11:57:07,799 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==>  Preparing: SELECT * FROM pizza WHERE pizza_id = ?
+2023-07-04 11:57:07,800 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==> Parameters: 2(Integer)
+2023-07-04 11:57:07,802 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==    Columns: pizza_id, type, name, description, price_regular, price_medium, price_large
+2023-07-04 11:57:07,803 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==        Row: 2, Non-Veg, Chicken-sause, Non-Veg most selling item, 200, 250, 300
+2023-07-04 11:57:07,805 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==      Total: 1
+2023-07-04 11:57:07,806 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 11:57:07,806 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==> Parameters: 2(Integer)
+2023-07-04 11:57:07,808 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==    Columns: price_medium
+2023-07-04 11:57:07,808 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==        Row: 250
+2023-07-04 11:57:07,809 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==      Total: 1
+2023-07-04 11:57:07,809 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==>  Preparing: SELECT * FROM pizza WHERE pizza_id = ?
+2023-07-04 11:57:07,810 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==> Parameters: 15(Integer)
+2023-07-04 11:57:07,813 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==    Columns: pizza_id, type, name, description, price_regular, price_medium, price_large
+2023-07-04 11:57:07,814 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==        Row: 15, Veg, Paneer-tikka, Veg most selling item, 200, 250, 300
+2023-07-04 11:57:07,815 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==      Total: 1
+2023-07-04 11:57:07,816 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 11:57:07,817 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==> Parameters: 15(Integer)
+2023-07-04 11:57:07,818 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==    Columns: price_medium
+2023-07-04 11:57:07,819 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==        Row: 250
+2023-07-04 11:57:07,820 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==      Total: 1
+2023-07-04 11:57:07,820 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Started inserting entry in orders(Parent table)..
+2023-07-04 11:57:07,820 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==>  Preparing: INSERT INTO orders(customer_id, order_amount, order_date, address) VALUES(?, ?, ?, ?)
+2023-07-04 11:57:07,821 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==> Parameters: 1(Integer), 0(Integer), 2023-07-04T06:27:07.799(LocalDateTime), Manjari-pune(String)
+2023-07-04 11:57:07,833 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==    Updates: 1
+2023-07-04 11:57:07,834 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Started inserting entry in carts for orderId:20 
+2023-07-04 11:57:07,842 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==>  Preparing: INSERT INTO cart(order_id, pizza_id, pizza_size, quantity,cart_amount) VALUES (?, ?, ?, ?,?) , (?, ?, ?, ?,?)
+2023-07-04 11:57:07,843 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==> Parameters: 20(Integer), 2(Integer), MEDIUM(String), 1(Integer), 250(Integer), 20(Integer), 15(Integer), MEDIUM(String), 2(Integer), 500(Integer)
+2023-07-04 11:57:07,852 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==    Updates: 2
+2023-07-04 11:57:07,856 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==>  Preparing: UPDATE orders SET order_amount=? WHERE order_id=?
+2023-07-04 11:57:07,857 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] ==> Parameters: 750(Integer), 20(Integer)
+2023-07-04 11:57:07,864 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-5] <==    Updates: 1
+2023-07-04 11:57:07,865 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Returning response after processing request
+2023-07-04 11:58:36,869 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-8] Received request to update order details for id:20
+2023-07-04 11:58:36,871 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 11:58:36,873 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] ==> Parameters: 20(Integer)
+2023-07-04 11:58:36,875 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 11:58:36,876 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] <==        Row: 20, 1, Manjari-pune, 750, 2023-07-04 06:27:07.799, 2, MEDIUM, 1, 250
+2023-07-04 11:58:36,881 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] <==        Row: 20, 1, Manjari-pune, 750, 2023-07-04 06:27:07.799, 15, MEDIUM, 2, 500
+2023-07-04 11:58:36,882 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] <==      Total: 2
+2023-07-04 11:58:36,884 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] ==>  Preparing: select current_timestamp();
+2023-07-04 11:58:36,885 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] ==> Parameters: 
+2023-07-04 11:58:36,888 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] <==    Columns: current_timestamp()
+2023-07-04 11:58:36,890 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] <==        Row: 2023-07-04 11:58:36
+2023-07-04 11:58:36,892 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-8] <==      Total: 1
+2023-07-04 11:58:36,899 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: java.lang.String cannot be cast to java.time.LocalDateTime] with root cause
+java.lang.ClassCastException: java.lang.String cannot be cast to java.time.LocalDateTime
+	at com.sun.proxy.$Proxy68.getOrderDateTime(Unknown Source)
+	at com.example.demo.services.OrderService.updateOrder(OrderService.java:98)
+	at com.example.demo.controller.OrderController.updateOrder(OrderController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:684)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1787)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2023-07-04 12:00:12,811 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 12:00:12,827 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 12:00:19,383 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 12:00:19,414 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 16556 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 12:00:19,414 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2023-07-04 12:00:19,415 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 12:00:22,708 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:00:22,710 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 12:00:22,712 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 12:00:23,148 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 12:00:24,198 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:00:24,280 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 5.59 seconds (JVM running for 6.905)
+2023-07-04 12:00:29,745 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 12:00:29,949 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-1] Received request to update order details for id:20
+2023-07-04 12:00:29,985 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Starting...
+2023-07-04 12:00:31,197 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Start completed.
+2023-07-04 12:00:31,206 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 12:00:31,240 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer)
+2023-07-04 12:00:31,286 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 12:00:31,287 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 20, 1, Manjari-pune, 750, 2023-07-04 06:27:07.799, 2, MEDIUM, 1, 250
+2023-07-04 12:00:31,299 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 20, 1, Manjari-pune, 750, 2023-07-04 06:27:07.799, 15, MEDIUM, 2, 500
+2023-07-04 12:00:31,302 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 2
+2023-07-04 12:00:31,357 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:00:31,359 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 2(Integer)
+2023-07-04 12:00:31,363 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: price_medium
+2023-07-04 12:00:31,363 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 250
+2023-07-04 12:00:31,367 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 1
+2023-07-04 12:00:31,369 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:00:31,369 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 15(Integer)
+2023-07-04 12:00:31,371 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: price_medium
+2023-07-04 12:00:31,372 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 250
+2023-07-04 12:00:31,373 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 1
+2023-07-04 12:00:31,373 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started updating entry in orders(Parent table)..
+2023-07-04 12:00:31,374 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: UPDATE orders SET customer_id = ?, order_amount = ?, order_date = ?, address = ? WHERE order_id = ?
+2023-07-04 12:00:31,375 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 1(Integer), 0(Integer), 2023-07-04T06:30:31.314(LocalDateTime), Manjari-pune(String), 20(Integer)
+2023-07-04 12:00:31,396 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 1
+2023-07-04 12:00:31,397 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] deleting old cart entries for orderId:20
+2023-07-04 12:00:31,399 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: DELETE FROM cart WHERE order_id = ?
+2023-07-04 12:00:31,400 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer)
+2023-07-04 12:00:31,411 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 2
+2023-07-04 12:00:31,412 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started updating entry in cart for items..
+2023-07-04 12:00:31,424 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: INSERT INTO cart(order_id, pizza_id, pizza_size, quantity,cart_amount) VALUES (?, ?, ?, ?,?) , (?, ?, ?, ?,?)
+2023-07-04 12:00:31,425 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer), 2(Integer), MEDIUM(String), 3(Integer), 750(Integer), 20(Integer), 15(Integer), MEDIUM(String), 3(Integer), 750(Integer)
+2023-07-04 12:00:31,472 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 2
+2023-07-04 12:00:31,475 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: UPDATE orders SET order_amount=? WHERE order_id=?
+2023-07-04 12:00:31,477 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 1500(Integer), 20(Integer)
+2023-07-04 12:00:31,527 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 1
+2023-07-04 12:00:31,528 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Returning response after processing request
+2023-07-04 12:19:22,263 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 12:19:22,278 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 12:19:29,913 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 13144 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 12:19:29,912 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 12:19:29,918 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2023-07-04 12:19:29,919 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 12:19:34,509 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:19:34,511 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 12:19:34,511 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 12:19:34,851 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 12:19:36,005 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:19:36,066 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 6.97 seconds (JVM running for 8.721)
+2023-07-04 12:20:02,501 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 12:20:02,647 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-2] Received request to update order details for id:20
+2023-07-04 12:20:02,673 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Starting...
+2023-07-04 12:20:03,843 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Start completed.
+2023-07-04 12:20:03,853 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 12:20:03,886 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer)
+2023-07-04 12:20:03,913 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 12:20:03,914 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04 06:30:31.314, 2, MEDIUM, 3, 750
+2023-07-04 12:20:03,920 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04 06:30:31.314, 15, MEDIUM, 3, 750
+2023-07-04 12:20:03,921 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 2
+2023-07-04 12:20:03,957 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.time.temporal.UnsupportedTemporalTypeException: Unsupported field: OffsetSeconds] with root cause
+java.time.temporal.UnsupportedTemporalTypeException: Unsupported field: OffsetSeconds
+	at java.time.LocalDate.get0(LocalDate.java:680)
+	at java.time.LocalDate.getLong(LocalDate.java:659)
+	at java.time.LocalDateTime.getLong(LocalDateTime.java:720)
+	at java.time.format.DateTimePrintContext.getValue(DateTimePrintContext.java:298)
+	at java.time.format.DateTimeFormatterBuilder$OffsetIdPrinterParser.format(DateTimeFormatterBuilder.java:3335)
+	at java.time.format.DateTimeFormatterBuilder$CompositePrinterParser.format(DateTimeFormatterBuilder.java:2179)
+	at java.time.format.DateTimeFormatter.formatTo(DateTimeFormatter.java:1746)
+	at java.time.format.DateTimeFormatter.format(DateTimeFormatter.java:1720)
+	at java.time.LocalDateTime.format(LocalDateTime.java:1752)
+	at com.example.demo.Utility.getUTCFormattedDate(Utility.java:11)
+	at com.example.demo.services.OrderService.updateOrder(OrderService.java:96)
+	at com.example.demo.controller.OrderController.updateOrder(OrderController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:684)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1787)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2023-07-04 12:25:33,773 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 12:25:33,789 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 12:25:40,034 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 16684 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 12:25:40,033 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 12:25:40,040 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2023-07-04 12:25:40,041 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 12:25:43,894 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:25:43,896 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 12:25:43,896 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 12:25:44,279 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 12:25:45,412 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:25:45,473 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 6.316 seconds (JVM running for 7.704)
+2023-07-04 12:26:14,630 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 12:26:14,794 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-1] Received request to update order details for id:20
+2023-07-04 12:26:14,822 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Starting...
+2023-07-04 12:26:15,966 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Start completed.
+2023-07-04 12:26:15,975 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 12:26:16,003 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer)
+2023-07-04 12:26:16,043 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 12:26:16,044 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04 06:30:31.314, 2, MEDIUM, 3, 750
+2023-07-04 12:26:16,048 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04 06:30:31.314, 15, MEDIUM, 3, 750
+2023-07-04 12:26:16,050 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 2
+2023-07-04 12:26:16,128 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:26:16,129 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 2(Integer)
+2023-07-04 12:26:16,131 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: price_medium
+2023-07-04 12:26:16,132 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 250
+2023-07-04 12:26:16,134 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 1
+2023-07-04 12:26:16,135 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:26:16,136 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 15(Integer)
+2023-07-04 12:26:16,138 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: price_medium
+2023-07-04 12:26:16,138 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 250
+2023-07-04 12:26:16,139 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 1
+2023-07-04 12:26:16,139 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started updating entry in orders(Parent table)..
+2023-07-04 12:26:16,140 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: UPDATE orders SET customer_id = ?, order_amount = ?, order_date = ?, address = ? WHERE order_id = ?
+2023-07-04 12:26:16,142 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 1(Integer), 0(Integer), 2023-07-04T12:26:16Z(String), Manjari-pune(String), 20(Integer)
+2023-07-04 12:26:16,178 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 1
+2023-07-04 12:26:16,179 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] deleting old cart entries for orderId:20
+2023-07-04 12:26:16,179 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: DELETE FROM cart WHERE order_id = ?
+2023-07-04 12:26:16,180 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer)
+2023-07-04 12:26:16,187 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 2
+2023-07-04 12:26:16,188 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started updating entry in cart for items..
+2023-07-04 12:26:16,195 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: INSERT INTO cart(order_id, pizza_id, pizza_size, quantity,cart_amount) VALUES (?, ?, ?, ?,?) , (?, ?, ?, ?,?)
+2023-07-04 12:26:16,196 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer), 2(Integer), MEDIUM(String), 3(Integer), 750(Integer), 20(Integer), 15(Integer), MEDIUM(String), 3(Integer), 750(Integer)
+2023-07-04 12:26:16,221 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 2
+2023-07-04 12:26:16,224 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: UPDATE orders SET order_amount=? WHERE order_id=?
+2023-07-04 12:26:16,226 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 1500(Integer), 20(Integer)
+2023-07-04 12:26:16,267 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 1
+2023-07-04 12:26:16,268 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Returning response after processing request
+2023-07-04 12:34:09,341 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 12:34:09,364 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 12:34:14,827 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 12:34:14,861 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 15608 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 12:34:14,862 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2023-07-04 12:34:14,863 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 12:34:18,167 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:34:18,168 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 12:34:18,168 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 12:34:18,556 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 12:34:19,585 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:34:19,654 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 5.542 seconds (JVM running for 6.784)
+2023-07-04 12:34:46,635 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 12:34:46,799 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-2] Received request to update order details for id:20
+2023-07-04 12:34:46,826 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Starting...
+2023-07-04 12:34:48,073 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Start completed.
+2023-07-04 12:34:48,084 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 12:34:48,123 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer)
+2023-07-04 12:34:48,157 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 12:34:48,158 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T12:26:16Z, 2, MEDIUM, 3, 750
+2023-07-04 12:34:48,162 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T12:26:16Z, 15, MEDIUM, 3, 750
+2023-07-04 12:34:48,163 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 2
+2023-07-04 12:34:48,240 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:34:48,241 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 2(Integer)
+2023-07-04 12:34:48,244 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: price_medium
+2023-07-04 12:34:48,245 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 250
+2023-07-04 12:34:48,261 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 1
+2023-07-04 12:34:48,263 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:34:48,295 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 15(Integer)
+2023-07-04 12:34:48,297 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: price_medium
+2023-07-04 12:34:48,299 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 250
+2023-07-04 12:34:48,310 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 1
+2023-07-04 12:34:48,323 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started updating entry in orders(Parent table)..
+2023-07-04 12:34:48,324 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: UPDATE orders SET customer_id = ?, order_amount = ?, order_date = ?, address = ? WHERE order_id = ?
+2023-07-04 12:34:48,448 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 1(Integer), 0(Integer), 2023-07-04T07:04:48Z(String), Manjari-pune(String), 20(Integer)
+2023-07-04 12:34:48,460 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 1
+2023-07-04 12:34:48,461 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] deleting old cart entries for orderId:20
+2023-07-04 12:34:48,461 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: DELETE FROM cart WHERE order_id = ?
+2023-07-04 12:34:48,462 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer)
+2023-07-04 12:34:48,476 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 2
+2023-07-04 12:34:48,477 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started updating entry in cart for items..
+2023-07-04 12:34:48,483 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: INSERT INTO cart(order_id, pizza_id, pizza_size, quantity,cart_amount) VALUES (?, ?, ?, ?,?) , (?, ?, ?, ?,?)
+2023-07-04 12:34:48,484 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer), 2(Integer), MEDIUM(String), 3(Integer), 750(Integer), 20(Integer), 15(Integer), MEDIUM(String), 3(Integer), 750(Integer)
+2023-07-04 12:34:48,496 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 2
+2023-07-04 12:34:48,499 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: UPDATE orders SET order_amount=? WHERE order_id=?
+2023-07-04 12:34:48,500 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 1500(Integer), 20(Integer)
+2023-07-04 12:34:48,508 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 1
+2023-07-04 12:34:48,509 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Returning response after processing request
+2023-07-04 12:35:32,913 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-3] Received request to update order details for id:20
+2023-07-04 12:35:32,916 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 12:35:32,917 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==> Parameters: 20(Integer)
+2023-07-04 12:35:32,920 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 12:35:32,920 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T07:04:48Z, 2, MEDIUM, 3, 750
+2023-07-04 12:35:32,923 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T07:04:48Z, 15, MEDIUM, 3, 750
+2023-07-04 12:35:32,924 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==      Total: 2
+2023-07-04 12:36:49,667 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m675ms365µs100ns).
+2023-07-04 12:36:49,670 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:36:49,671 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==> Parameters: 2(Integer)
+2023-07-04 12:36:49,674 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==    Columns: price_medium
+2023-07-04 12:36:49,677 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==        Row: 250
+2023-07-04 12:36:49,678 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==      Total: 1
+2023-07-04 12:36:49,679 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:36:49,679 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==> Parameters: 15(Integer)
+2023-07-04 12:36:49,681 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==    Columns: price_medium
+2023-07-04 12:36:49,681 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==        Row: 250
+2023-07-04 12:36:49,682 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==      Total: 1
+2023-07-04 12:36:49,683 INFO com.example.demo.services.OrderService [http-nio-8080-exec-3] Started updating entry in orders(Parent table)..
+2023-07-04 12:36:49,683 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==>  Preparing: UPDATE orders SET customer_id = ?, order_amount = ?, order_date = ?, address = ? WHERE order_id = ?
+2023-07-04 12:36:49,684 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==> Parameters: 1(Integer), 0(Integer), 2023-07-04T07:05:38Z(String), Manjari-pune(String), 20(Integer)
+2023-07-04 12:36:49,693 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==    Updates: 1
+2023-07-04 12:36:49,694 INFO com.example.demo.services.OrderService [http-nio-8080-exec-3] deleting old cart entries for orderId:20
+2023-07-04 12:36:49,694 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==>  Preparing: DELETE FROM cart WHERE order_id = ?
+2023-07-04 12:36:49,695 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==> Parameters: 20(Integer)
+2023-07-04 12:36:49,703 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==    Updates: 2
+2023-07-04 12:36:49,703 INFO com.example.demo.services.OrderService [http-nio-8080-exec-3] Started updating entry in cart for items..
+2023-07-04 12:36:49,713 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==>  Preparing: INSERT INTO cart(order_id, pizza_id, pizza_size, quantity,cart_amount) VALUES (?, ?, ?, ?,?) , (?, ?, ?, ?,?)
+2023-07-04 12:36:49,714 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==> Parameters: 20(Integer), 2(Integer), MEDIUM(String), 3(Integer), 750(Integer), 20(Integer), 15(Integer), MEDIUM(String), 3(Integer), 750(Integer)
+2023-07-04 12:36:49,723 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==    Updates: 2
+2023-07-04 12:36:49,723 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==>  Preparing: UPDATE orders SET order_amount=? WHERE order_id=?
+2023-07-04 12:36:49,724 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] ==> Parameters: 1500(Integer), 20(Integer)
+2023-07-04 12:36:49,731 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-3] <==    Updates: 1
+2023-07-04 12:36:49,732 INFO com.example.demo.services.OrderService [http-nio-8080-exec-3] Returning response after processing request
+2023-07-04 12:36:52,811 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 12:36:52,828 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 12:37:00,146 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 12:37:00,165 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 16764 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 12:37:00,166 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2023-07-04 12:37:00,168 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 12:37:03,122 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:37:03,123 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 12:37:03,123 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 12:37:03,429 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 12:37:04,589 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:37:04,655 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 5.196 seconds (JVM running for 6.454)
+2023-07-04 12:37:16,445 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 12:37:16,609 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-2] Received request to update order details for id:20
+2023-07-04 12:37:16,641 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Starting...
+2023-07-04 12:37:17,821 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Start completed.
+2023-07-04 12:37:17,831 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 12:37:17,860 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer)
+2023-07-04 12:37:17,886 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 12:37:17,887 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T07:05:38Z, 2, MEDIUM, 3, 750
+2023-07-04 12:37:17,891 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T07:05:38Z, 15, MEDIUM, 3, 750
+2023-07-04 12:37:17,892 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 2
+2023-07-04 12:37:17,942 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:37:17,944 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 2(Integer)
+2023-07-04 12:37:17,961 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: price_medium
+2023-07-04 12:37:17,965 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 250
+2023-07-04 12:37:17,984 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 1
+2023-07-04 12:37:17,986 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:37:17,987 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 15(Integer)
+2023-07-04 12:37:17,990 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: price_medium
+2023-07-04 12:37:17,991 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 250
+2023-07-04 12:37:18,002 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 1
+2023-07-04 12:37:18,003 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started updating entry in orders(Parent table)..
+2023-07-04 12:37:18,004 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: UPDATE orders SET customer_id = ?, order_amount = ?, order_date = ?, address = ? WHERE order_id = ?
+2023-07-04 12:37:18,010 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 1(Integer), 0(Integer), 2023-07-04T07:07:17+00:00(String), Manjari-pune(String), 20(Integer)
+2023-07-04 12:37:18,073 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 1
+2023-07-04 12:37:18,073 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] deleting old cart entries for orderId:20
+2023-07-04 12:37:18,074 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: DELETE FROM cart WHERE order_id = ?
+2023-07-04 12:37:18,074 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer)
+2023-07-04 12:37:18,088 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 2
+2023-07-04 12:37:18,089 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started updating entry in cart for items..
+2023-07-04 12:37:18,096 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: INSERT INTO cart(order_id, pizza_id, pizza_size, quantity,cart_amount) VALUES (?, ?, ?, ?,?) , (?, ?, ?, ?,?)
+2023-07-04 12:37:18,097 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer), 2(Integer), MEDIUM(String), 3(Integer), 750(Integer), 20(Integer), 15(Integer), MEDIUM(String), 3(Integer), 750(Integer)
+2023-07-04 12:37:18,114 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 2
+2023-07-04 12:37:18,121 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: UPDATE orders SET order_amount=? WHERE order_id=?
+2023-07-04 12:37:18,122 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 1500(Integer), 20(Integer)
+2023-07-04 12:37:18,139 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 1
+2023-07-04 12:37:18,140 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Returning response after processing request
+2023-07-04 12:39:37,275 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 12:39:37,300 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 12:39:41,619 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 12:39:41,632 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 5604 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 12:39:41,632 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2023-07-04 12:39:41,633 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 12:39:44,662 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-07-04 12:39:44,676 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:39:44,677 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 12:39:44,678 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 12:39:45,086 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 12:39:45,087 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3300 ms
+2023-07-04 12:39:46,341 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:39:46,389 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-04 12:39:46,405 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 5.547 seconds (JVM running for 6.793)
+2023-07-04 12:39:54,443 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 12:39:54,443 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2023-07-04 12:39:54,445 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2023-07-04 12:39:54,623 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-2] Received request to update order details for id:20
+2023-07-04 12:39:54,662 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Starting...
+2023-07-04 12:39:56,159 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Start completed.
+2023-07-04 12:39:56,175 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 12:39:56,219 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer)
+2023-07-04 12:39:56,257 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 12:39:56,258 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T07:07:17+00:00, 2, MEDIUM, 3, 750
+2023-07-04 12:39:56,265 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T07:07:17+00:00, 15, MEDIUM, 3, 750
+2023-07-04 12:39:56,266 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 2
+2023-07-04 12:39:56,453 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:39:56,455 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 2(Integer)
+2023-07-04 12:39:56,457 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: price_medium
+2023-07-04 12:39:56,458 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 250
+2023-07-04 12:39:56,470 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 1
+2023-07-04 12:39:56,474 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:39:56,475 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 15(Integer)
+2023-07-04 12:39:56,489 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Columns: price_medium
+2023-07-04 12:39:56,489 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==        Row: 250
+2023-07-04 12:39:56,490 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==      Total: 1
+2023-07-04 12:39:56,491 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started updating entry in orders(Parent table)..
+2023-07-04 12:39:56,491 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: UPDATE orders SET customer_id = ?, order_amount = ?, order_date = ?, address = ? WHERE order_id = ?
+2023-07-04 12:39:56,492 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 1(Integer), 0(Integer), 2023-07-04T07:09:56+00:00(String), Manjari-pune(String), 20(Integer)
+2023-07-04 12:39:56,505 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 1
+2023-07-04 12:39:56,506 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] deleting old cart entries for orderId:20
+2023-07-04 12:39:56,507 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: DELETE FROM cart WHERE order_id = ?
+2023-07-04 12:39:56,507 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer)
+2023-07-04 12:39:56,520 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 2
+2023-07-04 12:39:56,521 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started updating entry in cart for items..
+2023-07-04 12:39:56,532 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: INSERT INTO cart(order_id, pizza_id, pizza_size, quantity,cart_amount) VALUES (?, ?, ?, ?,?) , (?, ?, ?, ?,?)
+2023-07-04 12:39:56,535 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 20(Integer), 2(Integer), MEDIUM(String), 3(Integer), 750(Integer), 20(Integer), 15(Integer), MEDIUM(String), 3(Integer), 750(Integer)
+2023-07-04 12:39:56,543 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 2
+2023-07-04 12:39:56,549 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==>  Preparing: UPDATE orders SET order_amount=? WHERE order_id=?
+2023-07-04 12:39:56,550 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] ==> Parameters: 1500(Integer), 20(Integer)
+2023-07-04 12:39:56,559 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-2] <==    Updates: 1
+2023-07-04 12:39:56,561 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Returning response after processing request
+2023-07-04 12:40:14,185 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 12:40:14,207 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 12:40:18,485 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 12:40:18,511 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 17680 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 12:40:18,512 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.7.1, Spring v5.3.21
+2023-07-04 12:40:18,513 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 12:40:21,438 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-07-04 12:40:21,456 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:40:21,458 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 12:40:21,458 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 12:40:21,822 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 12:40:21,823 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3172 ms
+2023-07-04 12:40:22,876 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:40:22,917 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-04 12:40:22,930 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 5.105 seconds (JVM running for 6.442)
+2023-07-04 12:40:26,403 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 12:40:26,403 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-07-04 12:40:26,405 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-07-04 12:40:26,620 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-1] Received request to update order details for id:20
+2023-07-04 12:40:26,673 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Starting...
+2023-07-04 12:40:27,917 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Start completed.
+2023-07-04 12:40:27,931 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT orders.order_id, orders.customer_id, orders.address, orders.order_amount, orders.order_date, cart.pizza_id, cart.pizza_size, cart.quantity, cart.cart_amount FROM cart INNER JOIN orders ON orders.order_id=cart.order_id Where orders.order_id = ? ORDER BY order_id;
+2023-07-04 12:40:27,984 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer)
+2023-07-04 12:40:28,052 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: order_id, customer_id, address, order_amount, order_date, pizza_id, pizza_size, quantity, cart_amount
+2023-07-04 12:40:28,056 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T07:09:56+00:00, 2, MEDIUM, 3, 750
+2023-07-04 12:40:28,073 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 20, 1, Manjari-pune, 1500, 2023-07-04T07:09:56+00:00, 15, MEDIUM, 3, 750
+2023-07-04 12:40:28,119 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 2
+2023-07-04 12:40:28,324 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:40:28,326 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 2(Integer)
+2023-07-04 12:40:28,339 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: price_medium
+2023-07-04 12:40:28,341 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 250
+2023-07-04 12:40:28,346 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 1
+2023-07-04 12:40:28,348 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: SELECT price_medium FROM pizza WHERE pizza_id = ?
+2023-07-04 12:40:28,349 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 15(Integer)
+2023-07-04 12:40:28,352 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Columns: price_medium
+2023-07-04 12:40:28,352 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==        Row: 250
+2023-07-04 12:40:28,353 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==      Total: 1
+2023-07-04 12:40:28,353 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started updating entry in orders(Parent table)..
+2023-07-04 12:40:28,354 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: UPDATE orders SET customer_id = ?, order_amount = ?, order_date = ?, address = ? WHERE order_id = ?
+2023-07-04 12:40:28,355 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 1(Integer), 0(Integer), 2023-07-04T07:10:28+00:00(String), Manjari-pune(String), 20(Integer)
+2023-07-04 12:40:28,363 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 1
+2023-07-04 12:40:28,364 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] deleting old cart entries for orderId:20
+2023-07-04 12:40:28,365 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: DELETE FROM cart WHERE order_id = ?
+2023-07-04 12:40:28,366 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer)
+2023-07-04 12:40:28,371 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 2
+2023-07-04 12:40:28,372 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started updating entry in cart for items..
+2023-07-04 12:40:28,382 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: INSERT INTO cart(order_id, pizza_id, pizza_size, quantity,cart_amount) VALUES (?, ?, ?, ?,?) , (?, ?, ?, ?,?)
+2023-07-04 12:40:28,384 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 20(Integer), 2(Integer), MEDIUM(String), 3(Integer), 750(Integer), 20(Integer), 15(Integer), MEDIUM(String), 3(Integer), 750(Integer)
+2023-07-04 12:40:28,391 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 2
+2023-07-04 12:40:28,393 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==>  Preparing: UPDATE orders SET order_amount=? WHERE order_id=?
+2023-07-04 12:40:28,396 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] ==> Parameters: 1500(Integer), 20(Integer)
+2023-07-04 12:40:28,402 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8080-exec-1] <==    Updates: 1
+2023-07-04 12:40:28,403 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Returning response after processing request
+2023-07-04 12:41:11,461 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 12:41:11,478 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 12:41:15,745 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 12:41:15,784 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 17732 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 12:41:15,785 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 12:41:18,603 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-07-04 12:41:18,619 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:41:18,620 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 12:41:18,620 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 12:41:18,985 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 12:41:18,985 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3103 ms
+2023-07-04 12:41:20,058 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 12:41:20,097 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-04 12:41:20,109 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 5.011 seconds (JVM running for 6.227)
+2023-07-04 12:41:27,431 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 12:41:27,432 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-07-04 12:41:27,434 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2023-07-04 12:41:27,588 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-1] Received request to update order details for id:20
+2023-07-04 12:41:27,620 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Starting...
+2023-07-04 12:41:28,892 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Start completed.
+2023-07-04 12:41:28,996 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started updating entry in orders(Parent table)..
+2023-07-04 12:41:29,006 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] deleting old cart entries for orderId:20
+2023-07-04 12:41:29,017 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started updating entry in cart for items..
+2023-07-04 12:41:29,046 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Returning response after processing request
+2023-07-04 15:43:10,227 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-5] Received request to create orders
+2023-07-04 15:43:10,262 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Started inserting entry in orders(Parent table)..
+2023-07-04 15:47:13,246 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m34s278ms754µs).
+2023-07-04 15:47:13,247 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Started inserting entry in carts for orderId:21 
+2023-07-04 15:47:13,275 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Returning response after processing request
+2023-07-04 15:47:14,299 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 15:47:14,310 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 15:47:21,869 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 15:47:21,912 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 19392 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 15:47:21,914 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 15:47:25,555 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-07-04 15:47:25,576 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 15:47:25,577 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 15:47:25,577 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 15:47:26,127 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 15:47:26,127 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 4057 ms
+2023-07-04 15:47:27,858 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 15:47:27,920 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-04 15:47:27,938 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 6.777 seconds (JVM running for 8.247)
+2023-07-04 15:47:32,135 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 15:47:32,135 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2023-07-04 15:47:32,138 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2023-07-04 15:47:32,338 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-2] Received request to create orders
+2023-07-04 15:47:32,375 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Starting...
+2023-07-04 15:47:33,936 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Start completed.
+2023-07-04 15:47:34,075 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started inserting entry in orders(Parent table)..
+2023-07-04 15:47:44,548 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started inserting entry in carts for orderId:22 
+2023-07-04 15:47:55,091 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Returning response after processing request
+2023-07-04 15:48:24,821 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 15:48:24,868 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 15:48:29,921 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 15:48:29,944 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 1096 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 15:48:29,947 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 15:48:33,862 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-07-04 15:48:33,882 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 15:48:33,884 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 15:48:33,885 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 15:48:34,602 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 15:48:34,602 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 4418 ms
+2023-07-04 15:48:36,367 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 15:48:36,433 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-04 15:48:36,478 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 7.308 seconds (JVM running for 8.711)
+2023-07-04 15:48:37,187 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 15:48:37,187 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2023-07-04 15:48:37,189 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2023-07-04 15:48:37,358 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-2] Received request to create orders
+2023-07-04 15:48:37,385 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Starting...
+2023-07-04 15:48:38,718 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Start completed.
+2023-07-04 15:48:38,840 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started inserting entry in orders(Parent table)..
+2023-07-04 15:48:38,911 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started inserting entry in carts for orderId:23 
+2023-07-04 15:48:38,994 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Returning response after processing request
+2023-07-04 15:48:48,060 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 15:48:48,081 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 15:48:53,558 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 15:48:53,596 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 16908 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 15:48:53,598 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 15:48:57,330 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-07-04 15:48:57,351 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 15:48:57,352 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 15:48:57,352 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 15:48:57,774 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 15:48:57,775 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3998 ms
+2023-07-04 15:48:59,425 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 15:48:59,492 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-04 15:48:59,524 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 6.719 seconds (JVM running for 8.186)
+2023-07-04 15:49:00,162 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 15:49:00,164 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-07-04 15:49:00,166 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2023-07-04 15:49:00,422 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-1] Received request to create orders
+2023-07-04 15:49:00,449 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Starting...
+2023-07-04 15:49:01,843 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-1] HikariPool-1 - Start completed.
+2023-07-04 15:49:01,959 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started inserting entry in orders(Parent table)..
+2023-07-04 15:49:01,990 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Started inserting entry in carts for orderId:24 
+2023-07-04 15:49:02,038 INFO com.example.demo.services.OrderService [http-nio-8080-exec-1] Returning response after processing request
+2023-07-04 15:49:13,133 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-07-04 15:49:13,149 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-07-04 15:49:17,906 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.3.Final
+2023-07-04 15:49:17,928 INFO org.springframework.boot.StartupInfoLogger [main] Starting DemoApplication using Java 1.8.0_202 on TBIN04 with PID 3932 (D:\workspace\DEMO\demo\demo\target\classes started by Administrator in D:\workspace\DEMO\demo\demo)
+2023-07-04 15:49:17,931 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-07-04 15:49:21,126 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-07-04 15:49:21,144 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-04 15:49:21,146 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-07-04 15:49:21,152 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.64]
+2023-07-04 15:49:21,591 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-07-04 15:49:21,592 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3523 ms
+2023-07-04 15:49:22,995 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-07-04 15:49:23,048 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-04 15:49:23,075 INFO org.springframework.boot.StartupInfoLogger [main] Started DemoApplication in 5.857 seconds (JVM running for 7.26)
+2023-07-04 15:49:26,758 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-04 15:49:26,760 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2023-07-04 15:49:26,762 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2023-07-04 15:49:26,996 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-2] Received request to create orders
+2023-07-04 15:49:27,038 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Starting...
+2023-07-04 15:49:28,386 INFO com.zaxxer.hikari.HikariDataSource [http-nio-8080-exec-2] HikariPool-1 - Start completed.
+2023-07-04 15:49:28,520 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started inserting entry in orders(Parent table)..
+2023-07-04 15:49:28,555 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Started inserting entry in carts for orderId:25 
+2023-07-04 15:49:28,587 INFO com.example.demo.services.OrderService [http-nio-8080-exec-2] Returning response after processing request
+2023-07-04 15:53:02,548 INFO com.example.demo.controller.OrderController [http-nio-8080-exec-5] Received request to create orders
+2023-07-04 15:53:02,562 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Started inserting entry in orders(Parent table)..
+2023-07-04 15:53:02,621 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Started inserting entry in carts for orderId:26 
+2023-07-04 15:53:02,639 INFO com.example.demo.services.OrderService [http-nio-8080-exec-5] Returning response after processing request

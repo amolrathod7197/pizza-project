@@ -10,6 +10,7 @@
         <result property="priceRegular" column="price_regular"/>
         <result property="priceMedium" column="price_medium"/>
         <result property="priceLarge" column="price_large"/>
+        <result property="availableQuantity" column="available_quantity"/>
     </resultMap>
 
     <select id="findAll" resultType="pizza" resultMap="result">
@@ -17,8 +18,8 @@
     </select>
 
     <insert id="insert" parameterType="pizza" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        INSERT INTO pizza(name, type, description, price_regular,price_medium,price_large)
-        VALUES(#{name}, #{type}, #{description}, #{priceRegular}, #{priceMedium}, #{priceLarge})
+        INSERT INTO pizza(name, type, description, price_regular,price_medium,price_large,available_quantity)
+        VALUES(#{name}, #{type}, #{description}, #{priceRegular}, #{priceMedium}, #{priceLarge},#{availableQuantity})
     </insert>
 
     <update id="update" parameterType="pizza">
@@ -28,7 +29,8 @@
         description = #{description},
         price_regular = #{priceRegular},
         price_medium = #{priceMedium},
-        price_large = #{priceLarge}
+        price_large = #{priceLarge},
+        available_quantity = #{availableQuantity}
         WHERE pizza_id = #{id}
     </update>
 

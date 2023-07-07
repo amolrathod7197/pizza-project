@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jdk.nashorn.internal.objects.annotations.Getter;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -25,8 +27,11 @@ public class Pizza {
     @JsonProperty("PriceMedium")
     private Integer priceMedium;
     @JsonProperty("PriceLarge")
-     @NotNull(message = "PriceLarge is mandatory field")
+    @NotNull(message = "PriceLarge is mandatory field")
     private Integer priceLarge;
+
+    @JsonProperty("AvailableQuantity")
+    private Integer availableQuantity;
 
     public int getId() {
         return id;
@@ -84,5 +89,11 @@ public class Pizza {
         this.priceLarge = priceLarge;
     }
 
+    public Integer getAvailableQuantity() {
+        return availableQuantity;
+    }
 
+    public void setAvailableQuantity(Integer availableQuantity) {
+        this.availableQuantity = availableQuantity;
+    }
 }

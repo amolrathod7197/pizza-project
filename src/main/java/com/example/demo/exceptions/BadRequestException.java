@@ -1,9 +1,9 @@
 package com.example.demo.exceptions;
 
-public class DuplicateResourceException extends RuntimeException {
+public class BadRequestException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
-    public DuplicateResourceException(String message) {
+    public BadRequestException(String message) {
         super(message);
     }
 }

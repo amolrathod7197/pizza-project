@@ -20,7 +20,6 @@
     </resultMap>
 
     <select id="findAll" resultType="order" resultMap="result">
-<!--        SELECT * FROM orders-->
         SELECT orders.order_id,
         orders.customer_id,
         orders.address,
@@ -36,7 +35,7 @@
         ORDER BY order_id;
     </select>
 
-    <insert id="insertIntoOrders" parameterType="order" useGeneratedKeys="true" keyProperty="orderId" >
+    <insert id="insertIntoOrders" parameterType="order" useGeneratedKeys="true" keyProperty="orderId">
         INSERT INTO orders(customer_id, order_amount, order_date, address)
         VALUES(#{customerId}, #{amount}, #{orderDateTime}, #{address})
     </insert>
@@ -62,16 +61,6 @@
         DELETE FROM cart WHERE order_id = #{orderId}
     </delete>
 
-<!--    <update id="updateCart">-->
-<!--        UPDATE cart SET-->
-<!--        pizza_id = #{pizzaId},-->
-<!--        pizza_size = #{size},-->
-<!--        quantity = #{quantity},-->
-<!--        cart_amount = #{amount}-->
-<!--        WHERE cart_id = #{cartId} and-->
-<!--        pizza_id = #{pizzaId}-->
-<!--    </update>-->
-
     <delete id="deleteById" parameterType="int">
         DELETE orders,cart FROM orders
         INNER JOIN
@@ -82,8 +71,6 @@
 
     <select id="findById" parameterType="int"
             resultType="order" resultMap="result">
-<!--        SELECT * FROM orders WHERE order_id = #{id}-->
-
         SELECT orders.order_id,
         orders.customer_id,
         orders.address,
@@ -100,31 +87,28 @@
         ORDER BY order_id;
     </select>
 
-    <select id="getPrice" resultType="int">
+    <select id="checkQuantityAndPrice" resultType="map">
         SELECT
-            <choose>
-                <when test="size == 'REGULAR'">
-                    price_regular
-                </when>
-                <when test="size == 'MEDIUM'">
-                    price_medium
-                </when>
-                <when test="size == 'LARGE'">
-                    price_large
-                </when>
-            </choose>
+        <choose>
+            <when test="size == 'REGULAR'">
+                price_regular
+            </when>
+            <when test="size == 'MEDIUM'">
+                price_medium
+            </when>
+            <when test="size == 'LARGE'">
+                price_large
+            </when>
+        </choose>
+        as price, available_quantity
         FROM pizza WHERE pizza_id = #{id}
     </select>
 
-    <update id="updateAmountInOrder">
-        UPDATE orders SET
-        order_amount=#{totalAmount}
-        WHERE
-        order_id=#{orderId}
+    <update id="updateQuantityForItem">
+        <foreach collection="pizzaList" item="pizza" separator=";">
+            UPDATE pizza SET available_quantity = available_quantity - #{pizza.quantity}
+            where pizza_id = #{pizza.pizzaId}
+        </foreach>
     </update>
-
-    <select id="getOrderDateTime" resultType="string">
-        select current_timestamp();
-    </select>
 
 </mapper>

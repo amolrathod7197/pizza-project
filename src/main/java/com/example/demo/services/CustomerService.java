@@ -2,7 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.Constants;
 import com.example.demo.dao.CustomerDao;
-import com.example.demo.exceptions.DuplicateResourceException;
+import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.model.Customer;
 import com.example.demo.model.Pizza;
@@ -35,7 +35,7 @@ public class CustomerService {
         CustomerResponse response = new CustomerResponse();
         Optional<Pizza> pizzaEntry = customerDao.findByMobile(customer.getPhoneNumber());
         if (pizzaEntry.isPresent()) {
-            throw new DuplicateResourceException("Customer is already present..!");
+            throw new BadRequestException("Customer is already present..!");
         }
         response.setStatus(customerDao.insert(customer) > 0 ? Constants.SUCCESS_STATUS : Constants.FAILED_STATUS);
         if (response.getStatus().equals(Constants.SUCCESS_STATUS)) {

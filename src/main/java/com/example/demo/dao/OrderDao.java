@@ -5,6 +5,7 @@ import com.example.demo.response.OrderDetail;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface OrderDao {
@@ -13,7 +14,7 @@ public interface OrderDao {
     Optional<Order> findById(Integer id);
     int deleteById(Integer id);
     int insertIntoOrders(Order order);
-    Integer getPrice(String size,Integer id);
+    Map checkQuantityAndPrice(String size, Integer id);
     int update(Order order);
     int insertIntoCart(int orderId, List<OrderDetail> pizzaList);
     void updateAmountInOrder(int totalAmount, int orderId);
@@ -25,4 +26,6 @@ public interface OrderDao {
     int updateCart(int orderId, int pizzaId, String size, int quantity, int amount);
 
     void cleanOldCart(int orderId);
+
+    void updateQuantityForItem(List<OrderDetail> pizzaList);
 }

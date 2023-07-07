@@ -59,7 +59,7 @@ public class GlobalExceptionHandler {
         return errorResponse;
     }
 
-    @ExceptionHandler(DuplicateResourceException.class)
+    @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<CustomErrorResponse>
     handleDuplicateResourceError(Exception ex, WebRequest request) {
         CustomErrorResponse errors = new CustomErrorResponse();

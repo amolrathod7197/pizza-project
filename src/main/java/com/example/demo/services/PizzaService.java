@@ -1,9 +1,8 @@
 package com.example.demo.services;
 
 import com.example.demo.Constants;
-import com.example.demo.controller.PizzaController;
 import com.example.demo.dao.PizzaDao;
-import com.example.demo.exceptions.DuplicateResourceException;
+import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.model.Pizza;
 import com.example.demo.response.PizzaResponse;
@@ -35,7 +34,7 @@ public class PizzaService {
         Optional<Pizza> pizzaEntry = pizzaDao.findByName(pizza.getName());
         if(pizzaEntry.isPresent())
         {
-            throw new DuplicateResourceException("Pizza is already present with same name");
+            throw new BadRequestException("Pizza is already present with same name");
         }
         PizzaResponse response = new PizzaResponse();
         response.setStatus(pizzaDao.insert(pizza) > 0 ? Constants.SUCCESS_STATUS : Constants.FAILED_STATUS);
